@@ -28,6 +28,11 @@ app.get('/venues', (req, res) => {
 	res.json(venues)
 })
 
+app.get('/venues/:id', (req, res) => {
+	// returns specific venue by id
+	res.send(venues[req.params.id])
+})
+
 app.post('/venues/events', (req, res) => {
 	// allow user to submit events
 	venues.push(req.body.events);
