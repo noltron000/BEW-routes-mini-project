@@ -1,21 +1,39 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser')
 
-const venue = require('./models/venue');
+app.use(bodyParser.urlencoded({
+    extended: false
+}))
+
+
+app.use(bodyParser.json())
+
+//const venue = require('./models/venue');
 
 
 
-console.log(venue)
+//console.log(venue)
+
+const venues = [{
+    name: 'AT&T Park',
+    events: []
+
+}, {
+    name: 'Dolores Park',
+    events: []
+
+}]
 
 
 app.get('/venues', (req, res) => {
-    res.json(venue)
+    res.json(venues)
 })
 
 
 app.post('/venues/events', (req, res) => {
-    venue.events.push('Blockchain Meetup')
+    venues.push(req.body.events);
+    console.log(venues);
 })
 
 
