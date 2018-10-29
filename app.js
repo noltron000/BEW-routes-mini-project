@@ -10,14 +10,18 @@ app.use(bodyParser.json())
 
 // use postman to test routes
 // our models
-const venues = [{
-	name: 'AT&T Park',
-	events: []
-
-}, {
-	name: 'Dolores Park',
-	events: []
-}]
+const venues = [
+	{
+		id: "0",
+		name: 'AT&T Park',
+		events: []
+	},
+	{
+		id: "1",
+		name: 'Dolores Park',
+		events: []
+	}
+];
 
 app.get('/venues', (req, res) => {
 	// returns events in json
