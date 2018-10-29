@@ -9,12 +9,9 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json())
 
-//const venue = require('./models/venue');
+// use postman to test routes 
 
-
-
-//console.log(venue)
-
+// our models 
 const venues = [{
     name: 'AT&T Park',
     events: []
@@ -27,11 +24,13 @@ const venues = [{
 
 
 app.get('/venues', (req, res) => {
+    // returns events in json
     res.json(venues)
 })
 
 
 app.post('/venues/events', (req, res) => {
+    // allow user to submit events
     venues.push(req.body.events);
     console.log(venues);
 })
